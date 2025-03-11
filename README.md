@@ -114,7 +114,7 @@ public void OnInteraction(InputAction.CallbackContext context)
 
 }
 
-// 바닥을 찍을때 애니메이션 판정
+// 바닥을 찍을 때 애니메이션 판정
 public void OnStamping(InputAction.CallbackContext context)
 {
     if (IsWalk) return;
