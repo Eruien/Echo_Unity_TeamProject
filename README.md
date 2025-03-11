@@ -1,5 +1,5 @@
 # Echo
-* 다운로드 : <[http://naver.me/Gal3Aupb](https://store.steampowered.com/app/3132180/Echo/)>
+* 다운로드 : <https://store.steampowered.com/app/3132180/Echo/>
 ***
 * 작업 기간 : 2024. 07. 01 ~ 2024. 08. 08 (2개월)
 * 인력 구성 : 4명
