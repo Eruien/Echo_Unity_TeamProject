@@ -41,7 +41,7 @@ public void OnMove(InputAction.CallbackContext context)
     keyboardInput = context.ReadValue<Vector2>();
 }
 
-// PC용 마우스 입력 받을 때 카메라 회전
+// PC용 마우스 입력받을 때 카메라 회전
 public void OnMouse(InputAction.CallbackContext context)
 {
     if (characterStop) return;
@@ -61,7 +61,7 @@ public void OnMouse(InputAction.CallbackContext context)
     transform.rotation = Quaternion.Euler(0.0f, MouseX, 0.0f);
 }
 
-// 모바일용 마우스 입력 받을 때 카메라 회전
+// 모바일용 마우스 입력받을 때 카메라 회전
 public void OnRunMobile(InputAction.CallbackContext context)
 {
     if (IsRun && context.performed)
@@ -79,7 +79,7 @@ public void OnRunMobile(InputAction.CallbackContext context)
     }
 }
 
-달리기 버튼을 입력 받을 때 상황 체크
+// 달리기 버튼을 입력받을 때 상황 체크
 public void OnRun(InputAction.CallbackContext context)
 {
     if (keyboardInput.y >= 0)
@@ -88,7 +88,7 @@ public void OnRun(InputAction.CallbackContext context)
     }
 }
 
-상호작용키를 입력 받을 때 키패드와 문에서 상호작용을 다르게 처리
+// 상호작용키를 입력받을 때 키패드와 문에서 상호작용을 다르게 처리
 public void OnInteraction(InputAction.CallbackContext context)
 {
     if (isKeyPadSight && context.performed)
@@ -141,15 +141,15 @@ public class MovePlayer : MonoBehaviour
 {
     // 사용자 정의, 유니티 클래스
 
-    // 키패드 비밀번호 리셋 용
+    // 키패드 비밀번호 리셋용
     [SerializeField]
     private GameObject keypadDark;
-    // F키 UI 활성, 비활성 용
+    // F키 UI 활성, 비활성용
     [SerializeField]
     private GameObject startDoorUI;
     [SerializeField]
     private GameObject endDoorUI;
-    // 달리기 버튼과 연결 용도
+    // 달리기 버튼과 연결용
     [SerializeField]
     private RunButton runButton;
 
@@ -162,7 +162,7 @@ public class MovePlayer : MonoBehaviour
     private PlayerNewInput playerNewInput;
     // Mobile용 NewInputSystem
     private PlayerInputMobile playerInputMobile;
-    // 달리기 이벤트 함수 등록 용
+    // 달리기 이벤트 함수 등록용
     private InputAction runAction;
     // Mobile용 카메라 회전 
     private InputAction lookLeftAction;
@@ -170,7 +170,7 @@ public class MovePlayer : MonoBehaviour
     private InputAction lookRightAction;
     // 버튼 클릭할 때 소리 한 번만 나게
     private InteractObject interactObject;
-    // 키패드랑 충돌 났는지 체크 용
+    // 키패드랑 충돌 났는지 체크용
     private KeypadCollisionCheck keypadCollisionCheck;
 
     public event PropertyChangedEventHandler PropertyChanged;
@@ -216,7 +216,7 @@ public class MovePlayer : MonoBehaviour
     }
 
     [SerializeField]
-    private bool isEcho = true; // 에코가 켜져있는지 여부
+    private bool isEcho = true; // 에코가 켜져 있는지 여부
 
     public bool IsEcho
     {
@@ -242,7 +242,7 @@ public class MovePlayer : MonoBehaviour
         set { isKeyPadSight = value; }
     }
 
-    private bool isInteraction = false; // 키패드를 확대시키고 있는지 여부
+    private bool isInteraction = false; // 키패드를 확대하고 있는지 여부
 
     public bool IsInteraction
     {
