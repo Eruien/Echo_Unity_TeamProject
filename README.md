@@ -1,7 +1,7 @@
 # Echo
 * 다운로드 : <https://store.steampowered.com/app/3132180/Echo/>
   
-![Echo](https://github.com/Eruien/TheKillingFloor_DirectX11_TeamProject/blob/main/Image/Pipeline.png)
+![Echo]([https://github.com/Eruien/TheKillingFloor_DirectX11_TeamProject/blob/main/Image/Pipeline.png](https://github.com/Eruien/Echo_TeamProject/blob/main/Image/Echo%ED%91%9C%EC%A7%80.png))
 ***
 * 작업 기간 : 2024. 07. 01 ~ 2024. 08. 08 (2개월)
 * 인력 구성 : 4명
