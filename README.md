@@ -769,3 +769,7 @@ public class FollowCamera : MonoBehaviour
 
 </details>
 
+# QTE(Quick Time Event)
+* 특정 이벤트에 돌입하면 F키를 누르라는 지시가 나오며 F키 입력에 따라 프로그레스바가 움직임
+
+<img src="Image/QTE.gif" width="600" height="350"/>
