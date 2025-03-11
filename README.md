@@ -22,3 +22,7 @@
   
 <img src="Image/Mobile.gif" width="600" height="350"/>
 
+* New Input System
+  
+<img src="Image/NewInputSystem.png" width="600" height="350"/>
+
