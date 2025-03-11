@@ -32,6 +32,7 @@
 
 <details>
 <summary> New Input System 이벤트 바인딩 함수</summary>
+	
 ```cs
 // 이벤트 바인딩 함수들
 // 캐릭터 키보드 입력이 들어올때 방향을 전달받음
