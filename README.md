@@ -30,11 +30,110 @@
   
 <img src="Image/NewInputSystem.png" width="600" height="350"/>
 
+<details>
+<summary> New Input System 이벤트 바인딩 함수</summary>
+```cs
+// 이벤트 바인딩 함수들
+// 캐릭터 키보드 입력이 들어올때 방향을 전달받음
+public void OnMove(InputAction.CallbackContext context)
+{
+    keyboardInput = context.ReadValue<Vector2>();
+}
+
+// PC용 마우스 입력 받을시 카메라 회전
+public void OnMouse(InputAction.CallbackContext context)
+{
+    if (characterStop) return;
+
+    Vector2 mousePosition = context.ReadValue<Vector2>();
+
+    float trunPlayer = mousePosition.x * mouseSensitivity * Time.deltaTime;
+    MouseX += trunPlayer;
+
+    if (MouseX > 360) MouseX -= 360.0f;
+    if (MouseX < 0) MouseX += 360.0f;
+
+    MouseY -= mousePosition.y * mouseSensitivity * Time.deltaTime;
+    MouseY = Mathf.Clamp(MouseY, -90f, 50f); //Clamp를 통해 최소값 최대값을 넘지 않도록함
+
+    characterCamera.transform.rotation = Quaternion.Euler(MouseY, MouseX, 0.0f);// 각 축을 한꺼번에 계산
+    transform.rotation = Quaternion.Euler(0.0f, MouseX, 0.0f);
+}
+
+// 모바일용 마우스 입력 받을시 카메라 회전
+public void OnRunMobile(InputAction.CallbackContext context)
+{
+    if (IsRun && context.performed)
+    {
+        IsRun = false;
+        runButton.isRun(false);
+        return;
+    }
+
+    if (context.performed)
+    {
+        IsRun = true;
+        runButton.isRun(true);
+        return;
+    }
+}
+
+달리기 버튼을 입력 받을 때 상황 체크
+public void OnRun(InputAction.CallbackContext context)
+{
+    if (keyboardInput.y >= 0)
+    {
+        WalkRun(context.performed);
+    }
+}
+
+상호작용키를 입력 받을 때 키패드와 문에서 상호작용을 다르게 처리
+public void OnInteraction(InputAction.CallbackContext context)
+{
+    if (isKeyPadSight && context.performed)
+    {
+        keypadCollisionCheck.OneCheckInteraciton = false;
+        isKeyPadSight = false;
+        IsEscape = true;
+
+        gameObject.transform.GetChild(0).gameObject.SetActive(true);
+
+        keypad.ResetUserInput();
+        return;
+    }
+    else
+    {
+        IsInteraction = context.performed;
+    }
+
+    if (context.performed)
+    {
+        StartCoroutine(interactObject.ClickedButton());
+    }
+
+}
+
+// 바닥을 찍을때 애니메이션 판정
+public void OnStamping(InputAction.CallbackContext context)
+{
+    if (IsWalk) return;
+    if (characterStop) return;
+
+    if (context.performed)
+    {
+        characterAnimation.SetBool("IsStamping", true);
+        return;
+    }
+}
+```
+
+</details>
+
 # Character Movement
 * 캐릭터의 기본적인 움직임과 캐릭터와 상호작용하는 오브젝트(카메라, 문, 스태미나, 키패드, 에코, 지팡이)의 연결 구현
 
 <details>
-<summary> Character Movement</summary>
+<summary> Character Movement 코드</summary>
 	
 ```cs
 public class MovePlayer : MonoBehaviour
@@ -549,120 +648,6 @@ public class MovePlayer : MonoBehaviour
         characterCamera.transform.rotation = Quaternion.Euler(MouseY, MouseX, 0.0f);// 각 축을 한꺼번에 계산
         transform.rotation = Quaternion.Euler(0.0f, MouseX, 0.0f);
     }
-
-    // 이벤트 바인딩 함수들
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        keyboardInput = context.ReadValue<Vector2>();
-    }
-
-    // 버튼 아래쪽으로 눌렀을 때 한 번 입력 받는 용도
-    // 이벤트 등록용도로만 사용
-    public void OnLookLeft(InputAction.CallbackContext context)
-    {
-
-    }
-
-    // 버튼 아래쪽으로 눌렀을 때 한 번 입력 받는 용도
-    // 이벤트 등록용도로만 사용
-    public void OnLookRight(InputAction.CallbackContext context)
-    {
-
-    }
-
-    // PC용 마우스 입력 받을시 카메라 회전
-    public void OnMouse(InputAction.CallbackContext context)
-    {
-        if (characterStop) return;
-
-        Vector2 mousePosition = context.ReadValue<Vector2>();
-
-        float trunPlayer = mousePosition.x * mouseSensitivity * Time.deltaTime;
-        MouseX += trunPlayer;
-
-        if (MouseX > 360) MouseX -= 360.0f;
-        if (MouseX < 0) MouseX += 360.0f;
-
-        MouseY -= mousePosition.y * mouseSensitivity * Time.deltaTime;
-        MouseY = Mathf.Clamp(MouseY, -90f, 50f); //Clamp를 통해 최소값 최대값을 넘지 않도록함
-
-        characterCamera.transform.rotation = Quaternion.Euler(MouseY, MouseX, 0.0f);// 각 축을 한꺼번에 계산
-        transform.rotation = Quaternion.Euler(0.0f, MouseX, 0.0f);
-    }
-
-    public void OnRunMobile(InputAction.CallbackContext context)
-    {
-        if (IsRun && context.performed)
-        {
-            IsRun = false;
-            runButton.isRun(false);
-            return;
-        }
-
-        if (context.performed)
-        {
-            IsRun = true;
-            runButton.isRun(true);
-            return;
-        }
-    }
-
-    public void OnRun(InputAction.CallbackContext context)
-    {
-        if (keyboardInput.y >= 0)
-        {
-            WalkRun(context.performed);
-        }
-    }
-
-    public void OnInteraction(InputAction.CallbackContext context)
-    {
-        if (isKeyPadSight && context.performed)
-        {
-            keypadCollisionCheck.OneCheckInteraciton = false;
-            isKeyPadSight = false;
-            IsEscape = true;
-
-            gameObject.transform.GetChild(0).gameObject.SetActive(true);
-
-            keypad.ResetUserInput();
-            return;
-        }
-        else
-        {
-            IsInteraction = context.performed;
-        }
-
-        if (context.performed)
-        {
-            StartCoroutine(interactObject.ClickedButton());
-        }
-
-    }
-
-    // 행동 취소용 이벤트 함수 취소할 행동이 많지 않아서 주석
-    /* public void OnEscape(InputAction.CallbackContext context)
-     {
-         IsEscape = context.performed;
-     }*/
-
-    // 바닥을 찍을때 애니메이션 판정
-    public void OnStamping(InputAction.CallbackContext context)
-    {
-        if (IsWalk) return;
-        if (characterStop) return;
-
-        if (context.performed)
-        {
-            characterAnimation.SetBool("IsStamping", true);
-            return;
-        }
-    }
-
-    protected void OnPropertyChanged(string propertyName)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-    }
 }
 
 ```
@@ -680,7 +665,7 @@ public class MovePlayer : MonoBehaviour
 <img src="Image/Head.png" width="600" height="350"/>
 
 <details>
-<summary> Follow Camera</summary>
+<summary> Follow Camera 코드</summary>
 	
 ```cs
 public class FollowCamera : MonoBehaviour
@@ -773,7 +758,7 @@ public class FollowCamera : MonoBehaviour
 <img src="Image/QTE.gif" width="600" height="350"/>
 
 <details>
-<summary> QTESystem</summary>
+<summary> QTESystem 코드</summary>
 	
 ```cs
 public class QTESystem : MonoBehaviour, INotifyPropertyChanged
