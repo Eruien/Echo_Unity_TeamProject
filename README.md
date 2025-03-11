@@ -669,6 +669,11 @@ public class MovePlayer : MonoBehaviour
 
 </details>
 
+# Cane Animation
+* 기존 애니메이션의 키 프레임과 로테이션 값을 조정해 지팡이 애니메이션 구현
+
+<img src="Image/Cane.gif" width="600" height="350"/>
+
 # Camera
 * 1인칭 구현을 위해 머리 머터리얼을 제거하고 캐릭터 계층에서 머리 본을 불러와 카메라가 따라다니게 함
 
@@ -764,6 +769,3 @@ public class FollowCamera : MonoBehaviour
 
 </details>
 
-* 기존 애니메이션의 키 프레임과 로테이션 값을 조정해 지팡이 애니메이션 구현
-
-<img src="Image/Cane.gif" width="600" height="350"/>
