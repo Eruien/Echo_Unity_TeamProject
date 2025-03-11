@@ -32,9 +32,6 @@
 
 # Character Movement
 * 캐릭터의 기본적인 움직임과 캐릭터와 상호작용하는 오브젝트(카메라, 문, 스태미나, 키패드, 에코, 지팡이)의 연결 구현
-* 기존 애니메이션의 키 프레임과 로테이션 값을 조정해 지팡이 애니메이션 구현
-
-<img src="Image/Cane.gif" width="600" height="350"/>
 
 <details>
 <summary> Character Movement</summary>
@@ -764,6 +761,9 @@ public class FollowCamera : MonoBehaviour
 }
 
 ```
-</details>
 
 </details>
+
+* 기존 애니메이션의 키 프레임과 로테이션 값을 조정해 지팡이 애니메이션 구현
+
+<img src="Image/Cane.gif" width="600" height="350"/>
