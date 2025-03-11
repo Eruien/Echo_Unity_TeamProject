@@ -1,7 +1,7 @@
 # Echo
 * 다운로드 : <https://store.steampowered.com/app/3132180/Echo/>
   
-![Echo]([https://github.com/Eruien/TheKillingFloor_DirectX11_TeamProject/blob/main/Image/Pipeline.png](https://github.com/Eruien/Echo_TeamProject/blob/main/Image/Echo%ED%91%9C%EC%A7%80.png))
+![Echo](https://github.com/Eruien/Echo_TeamProject/blob/main/Image/Echo.png)
 ***
 * 작업 기간 : 2024. 07. 01 ~ 2024. 08. 08 (2개월)
 * 인력 구성 : 4명
@@ -13,3 +13,7 @@
 * Space bar : 지팡이 찍기 
 # Character Movement
 * PC와 Mobile 크로스 플랫폼에서 움직임 구현을 위해 New Input System 사용
+* PC
+![Echo](https://github.com/Eruien/Echo_TeamProject/blob/main/Image/PC.gif)
+* Mobile
+* ![Echo](https://github.com/Eruien/Echo_TeamProject/blob/main/Image/Mobile.gif)
