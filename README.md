@@ -16,4 +16,4 @@
 * PC
 ![Echo](https://github.com/Eruien/Echo_TeamProject/blob/main/Image/PC.gif)
 * Mobile
-* ![Echo](https://github.com/Eruien/Echo_TeamProject/blob/main/Image/Mobile.gif)
+![Echo](https://github.com/Eruien/Echo_TeamProject/blob/main/Image/Mobile.gif)
