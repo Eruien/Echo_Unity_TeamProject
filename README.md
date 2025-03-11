@@ -14,6 +14,9 @@
 # Character Movement
 * PC와 Mobile 크로스 플랫폼에서 움직임 구현을 위해 New Input System 사용
 * PC
-![Echo](https://github.com/Eruien/Echo_TeamProject/blob/main/Image/PC.gif)
+
+![Alt text](https://github.com/Eruien/Echo_TeamProject/blob/main/Image/PC.gif)
+
 * Mobile
+  
 ![Echo](https://github.com/Eruien/Echo_TeamProject/blob/main/Image/Mobile.gif)
