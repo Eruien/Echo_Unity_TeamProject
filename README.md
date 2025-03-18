@@ -132,7 +132,7 @@ public void OnStamping(InputAction.CallbackContext context)
 </details>
 
 # Character Movement
-* 캐릭터의 기본적인 움직임과 캐릭터와 상호작용하는 오브젝트(카메라, 문, 스태미나, 키패드, 에코, 지팡이)의 연결 구현
+* 캐릭터의 기본적인 움직임과 캐릭터와 상호작용 하는 오브젝트(카메라, 문, 스태미나, 키패드, 에코, 지팡이)의 연결 구현
 
 <details>
 <summary> Character Movement 코드</summary>
@@ -662,7 +662,7 @@ public class MovePlayer : MonoBehaviour
 <img src="Image/Cane.gif" width="600" height="350"/>
 
 # Camera
-* 1인칭 구현을 위해 머리 머터리얼을 제거하고 캐릭터 계층에서 머리 본을 불러와 카메라가 따라다니게 함
+* 일인칭 구현을 위해 머리 머터리얼을 제거하고 캐릭터 계층에서 머리 본을 불러와 카메라가 따라다니게 함
 
 <img src="Image/Head.png" width="600" height="350"/>
 
@@ -755,7 +755,7 @@ public class FollowCamera : MonoBehaviour
 </details>
 
 # QTE(Quick Time Event)
-* 특정 이벤트에 돌입하면 F키를 누르라는 지시가 나오며 F키 입력에 따라 프로그레스바가 움직임
+* 특정 이벤트에 돌입하면 F 키를 누르라는 지시가 나오며 F 키 입력에 따라 프로그레스바가 움직임
 
 <img src="Image/QTE.gif" width="600" height="350"/>
 
