@@ -35,6 +35,7 @@
 	
 ```cs
 // 이벤트 바인딩 함수들
+
 // 캐릭터 키보드 입력이 들어올 때 방향을 전달받음
 public void OnMove(InputAction.CallbackContext context)
 {
@@ -61,7 +62,7 @@ public void OnMouse(InputAction.CallbackContext context)
     transform.rotation = Quaternion.Euler(0.0f, MouseX, 0.0f);
 }
 
-// 모바일용 마우스 입력받을 때 카메라 회전
+// 모바일용 터치 조이스틱을 사용하기 때문에 달리기 함수를 따로 만듬
 public void OnRunMobile(InputAction.CallbackContext context)
 {
     if (IsRun && context.performed)
